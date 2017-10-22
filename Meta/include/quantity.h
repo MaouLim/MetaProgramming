@@ -53,7 +53,11 @@ namespace meta {
 		}
 
 		template <typename _OtherDim>
-		self_type& operator=(const )
+		self_type& operator=(const quantity<_Val, _OtherDim>& other) {
+			static_assert(mpl::equal<_Dim, _OtherDim>::type::value);
+			m_val = other.value();
+			return *this;
+		}
 
 		const_reference value() const { return m_val; }
 		reference value() { return m_val; }
