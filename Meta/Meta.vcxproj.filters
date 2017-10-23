@@ -23,5 +23,11 @@
     <ClInclude Include="include\quantity.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="include\parameter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tiny.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

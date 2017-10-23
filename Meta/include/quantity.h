@@ -47,7 +47,7 @@ namespace meta {
 		explicit quantity(const_reference val) : m_val(val) { }
 
 		template <typename _OtherDim>
-		explicit quantity(const quantity<_Val, _OtherDim>& other) : 
+		quantity(const quantity<_Val, _OtherDim>& other) : 
 			m_val(other.value()) {
 			static_assert(mpl::equal<_Dim, _OtherDim>::type::value);
 		}

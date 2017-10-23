@@ -113,7 +113,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\parameter.h" />
     <ClInclude Include="include\quantity.h" />
+    <ClInclude Include="include\tiny.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
