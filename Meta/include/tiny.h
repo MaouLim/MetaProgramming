@@ -12,6 +12,7 @@
 #include <boost/mpl/vector/aux_/size.hpp>
 #include <boost/mpl/aux_/clear_impl.hpp>
 #include <boost/mpl/aux_/push_front_impl.hpp>
+#include <boost/mpl/aux_/push_back_impl.hpp>
 
 namespace mpl = boost::mpl;
 
@@ -90,6 +91,19 @@ namespace meta {
 				typename _Tiny::t2
 			>::type
 		> { };
+
+	template <typename _Tiny, typename _T, size_t _N>
+	struct tiny_push_back;
+
+	template <typename _Tiny, typename _T>
+	struct tiny_push_back<_Tiny, _T, 0> : tiny<_T, na, na> { };
+
+	template <typename _Tiny, typename _T>
+	struct tiny_push_back<_Tiny, _T, 1> : tiny<typename _Tiny::t0, _T, na> { };
+
+	template <typename _Tiny, typename _T>
+	struct tiny_push_back<_Tiny, _T, 2> : 
+		tiny<typename _Tiny::t0, typename _Tiny::t1, _T> { };
 }
 
 namespace boost {
@@ -193,6 +207,13 @@ namespace boost {
 				static_assert(!meta::tiny_full<_Tiny>::type::value);
 				typedef meta::tiny<_T, typename _Tiny::t0, typename _Tiny::t1> type;
 			};
+		};
+
+		template <>
+		struct push_back_impl<meta::tiny_tag> {
+			template <typename _Tiny, typename _T>
+			struct apply : 
+				meta::tiny_push_back<_Tiny, _T, size<_Tiny>::value> { };
 		};
 	}
 }
