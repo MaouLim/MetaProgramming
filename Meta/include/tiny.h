@@ -2,7 +2,6 @@
 #define _META_TINY_H_
 
 #include <boost/mpl/iterator_tags.hpp>
-#include <boost/mpl/next.hpp>
 #include <boost/mpl/vector/aux_/at.hpp>
 #include <boost/mpl/advance.hpp>
 #include <boost/mpl/plus.hpp>

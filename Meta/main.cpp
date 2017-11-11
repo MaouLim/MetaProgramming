@@ -1,9 +1,16 @@
 #include <quantity.h>
+#include <tiny.h>
+#include <string>
+#include <boost/mpl/size.hpp>
+#include <boost/mpl/push_back.hpp>
 
 int main(int argc, char* argv[]) {
 
-	meta::quantity<double, meta::mass>         m(1.0);
-	meta::quantity<double, meta::acceleration> a(2.0);
+	typedef meta::tiny<int, std::string, meta::na> ti;
+	mpl::push_back<ti, int>::type a;
+	static_assert(3 == mpl::size<decltype(a)>::type::value, "");
+	 
 
-	meta::quantity<double, meta::force> f = m * a;
+
+	return 0;
 }

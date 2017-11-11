@@ -29,5 +29,8 @@
     <ClInclude Include="include\tiny.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="include\tuple.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
